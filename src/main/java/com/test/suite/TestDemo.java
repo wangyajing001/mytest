@@ -17,7 +17,7 @@ import org.testng.ITestContext;
 import org.apache.log4j.PropertyConfigurator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-public class TestDemo extends BaseCase{
+public class TestDemo{
     Logger log = LoggerFactory.getLogger(TestDemo.class);
     @Test(invocationCount = 1,alwaysRun=true)
     public void test1() throws Exception {
