@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<suite name="group1" parallel="false">
+    <test name="mytest">
+        <classes>
+            <class name="com.test.suite.TestDemo"></class>
+            <class name="com.test.suite.TestDemo2"></class>
+
+        </classes>
+    </test>
+    <!--自定义测试报告-->
+    <listeners>
+        <listener class-name="com.test.suite.TestngListener"/>
+    </listeners>
+</suite>
