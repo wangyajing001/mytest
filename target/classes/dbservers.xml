@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<dbservers>
-	<dbserver name="sz_db" type="MYSQL" os="Linux_64" ip="rm-2ze0bl5fv0r771lemno.mysql.rds.aliyuncs.com"
-		port="3306" username="yangjing" password="c5221b65f5421626" dbName="tc_rongyi"/>
-</dbservers>		
