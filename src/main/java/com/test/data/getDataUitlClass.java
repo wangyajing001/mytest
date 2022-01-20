@@ -12,7 +12,7 @@ public class getDataUitlClass {
     /**
      * 获取excel中的数据公共方法
      */
-    public static Object[][] getDataUtil(String excelPath,String excelSheet) throws IOException, InvalidFormatException{
+    public static Object[][] getDataUtil(String excelPath,String excelSheet) {
         int rowIndex = 0;
         int colIndex = 0;
         Sheet naviSheet = getSheet(excelPath, excelSheet);
