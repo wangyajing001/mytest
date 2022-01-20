@@ -22,7 +22,7 @@ public class getDataUitlClass {
         for (rowIndex = 0; rowIndex <= iLastRowIndex; rowIndex++) {
             for (colIndex = 0; colIndex < lastColIndex; colIndex++) {
                 Cell cell = getCell(naviSheet, rowIndex, colIndex);
-                String paramValue = getCellValue(cell);
+                String paramValue = cell.getStringCellValue();
                 excelData[rowIndex][colIndex] = paramValue;
             }
         }
@@ -75,47 +75,43 @@ public class getDataUitlClass {
         return cell;
     }
 
-    /**
-     * @Title: getCellValue
-     * @Description: Get the Cell value from Excel
-     * @return: String
-     */
-    private static String getCellValue(Cell cell) {
-        String arg = "";
-        DecimalFormat df = new DecimalFormat("#");
-        switch (cell.getCellType()) {
-            case 1:
-                arg = (cell == null ? "" : cell.getStringCellValue());
-                break;
-            case 0:
-                Double dvalue = (cell == null ? 0 : cell.getNumericCellValue());
-                arg = String.valueOf(dvalue);
-                if(arg.matches("\\d+.[0]*"))
-                {
-                    int endIndex = arg.indexOf(".");
-                    arg = arg.substring(0, endIndex);
-                }
-                if(arg.matches("^((-?\\d+.?\\d*)[Ee]{1}(\\d+))$"))
-                {
-                    arg = df.format(dvalue);
-                }
-                break;
-            case 4:
-                Boolean bool = (cell == null ? false : cell.getBooleanCellValue());
-                arg = bool.toString();
-                break;
-            case 2:
-                arg = (cell == null ? "" : cell.getCellFormula());
-                break;
-            case 5:
-                arg =  (cell == null ? "" : Byte.toString(cell.getErrorCellValue()));
-                break;
-            case 3:
-                arg = "";
-                break;
-        }
-        return arg;
-    }
+
+//    private static String getCellValue(Cell cell) {
+//        String arg = "";
+//        DecimalFormat df = new DecimalFormat("#");
+//        switch (cell.getCellType()) {
+//            case 1:
+//                arg = (cell == null ? "" : cell.getStringCellValue());
+//                break;
+//            case 0:
+//                Double dvalue = (cell == null ? 0 : cell.getNumericCellValue());
+//                arg = String.valueOf(dvalue);
+//                if(arg.matches("\\d+.[0]*"))
+//                {
+//                    int endIndex = arg.indexOf(".");
+//                    arg = arg.substring(0, endIndex);
+//                }
+//                if(arg.matches("^((-?\\d+.?\\d*)[Ee]{1}(\\d+))$"))
+//                {
+//                    arg = df.format(dvalue);
+//                }
+//                break;
+//            case 4:
+//                Boolean bool = (cell == null ? false : cell.getBooleanCellValue());
+//                arg = bool.toString();
+//                break;
+//            case 2:
+//                arg = (cell == null ? "" : cell.getCellFormula());
+//                break;
+//            case 5:
+//                arg =  (cell == null ? "" : Byte.toString(cell.getErrorCellValue()));
+//                break;
+//            case 3:
+//                arg = "";
+//                break;
+//        }
+//        return arg;
+//    }
 
 
 }
