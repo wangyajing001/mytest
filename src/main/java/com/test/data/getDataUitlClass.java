@@ -1,8 +1,7 @@
 package com.test.data;
 
-import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
-import org.apache.poi.ss.usermodel.*;
 
+import org.apache.poi.ss.usermodel.*;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.text.DecimalFormat;
@@ -44,7 +43,7 @@ public class getDataUitlClass {
         }catch(IOException e)
         {
             e.printStackTrace();
-        }catch(InvalidFormatException e)
+        }catch(Exception e)
         {
             e.printStackTrace();
         }
@@ -85,10 +84,10 @@ public class getDataUitlClass {
         String arg = "";
         DecimalFormat df = new DecimalFormat("#");
         switch (cell.getCellType()) {
-            case Cell.CELL_TYPE_STRING:
+            case 1:
                 arg = (cell == null ? "" : cell.getStringCellValue());
                 break;
-            case Cell.CELL_TYPE_NUMERIC:
+            case 0:
                 Double dvalue = (cell == null ? 0 : cell.getNumericCellValue());
                 arg = String.valueOf(dvalue);
                 if(arg.matches("\\d+.[0]*"))
@@ -101,17 +100,17 @@ public class getDataUitlClass {
                     arg = df.format(dvalue);
                 }
                 break;
-            case Cell.CELL_TYPE_BOOLEAN:
+            case 4:
                 Boolean bool = (cell == null ? false : cell.getBooleanCellValue());
                 arg = bool.toString();
                 break;
-            case Cell.CELL_TYPE_FORMULA:
+            case 2:
                 arg = (cell == null ? "" : cell.getCellFormula());
                 break;
-            case Cell.CELL_TYPE_ERROR:
+            case 5:
                 arg =  (cell == null ? "" : Byte.toString(cell.getErrorCellValue()));
                 break;
-            case Cell.CELL_TYPE_BLANK:
+            case 3:
                 arg = "";
                 break;
         }
